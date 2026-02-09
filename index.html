@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مغسلة همس | تجربة الفخامة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            --neon: #00f2ff;
+            --pink: #ff007f;
+            --dark: #080808;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- نيون باك جراوند --- */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+        }
+        .blob {
+            position: absolute; width: 300px; height: 300px;
+            background: var(--neon); filter: blur(150px);
+            border-radius: 50%; opacity: 0.2; animation: move 10s infinite alternate;
+        }
+
+        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(20%, 20%); } }
+
+        /* --- Header --- */
+        header {
+            position: fixed; top: 0; width: 100%;
+            padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass); z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem; font-weight: 900;
+            background: linear-gradient(45deg, var(--neon), var(--pink));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+        }
+
+        .hero h1 span { color: var(--neon); text-shadow: 0 0 20px var(--neon); }
+
+        .cta-box {
+            display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 35px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; transition: 0.5s; display: flex; align-items: center; gap: 10px;
+        }
+
+        .btn-neon {
+            background: var(--neon); color: #000;
+            box-shadow: 0 0 20px var(--neon);
+        }
+        .btn-neon:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 0 40px var(--neon); }
+
+        /* --- Grid & Cards --- */
+        .services { padding: 100px 5%; }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--glass); border: 1px solid var(--glass);
+            border-radius: 25px; padding: 30px; position: relative;
+            overflow: hidden; transition: 0.5s; cursor: pointer;
+        }
+
+        .card::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--neon); background: rgba(255,255,255,0.08); }
+        .card:hover::before { left: 100%; }
+
+        .card i { font-size: 3rem; color: var(--neon); margin-bottom: 20px; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 5%; background: #050505; text-align: center;
+            border-top: 1px solid var(--glass);
+        }
+
+        .phone-footer {
+            font-size: 2rem; color: var(--pink); font-weight: 900;
+            text-decoration: none; display: block; margin: 20px 0;
+            text-shadow: 0 0 10px var(--pink);
+        }
+
+        .social-icons a {
+            color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--neon); transform: scale(1.3); }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow">
+        <div class="blob" style="top: 10%; right: 10%;"></div>
+        <div class="blob" style="bottom: 10%; left: 10%; background: var(--pink);"></div>
+    </div>
+
+    <header>
+        <div class="logo">HAMAS</div>
+        <a href="tel:05XXXXXXXX" style="color: var(--neon); text-decoration: none; font-weight: bold;">
+            <i class="fas fa-phone"></i>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate__animated animate__zoomIn">مغسلة <br> <span>هـمـس</span></h1>
+        <p class="animate__animated animate__fadeInUp" style="margin-bottom: 30px; opacity: 0.7;">أعلى معايير النظافة والتعقيم.. بلمسة عصرية.</p>
+        
+        <div class="cta-box animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+            <a href="https://wa.me/9665XXXXXXXX" class="btn btn-neon">
+                <i class="fab fa-whatsapp"></i> واتساب
+            </a>
+            <a href="tel:05XXXXXXXX" class="btn" style="border: 1px solid var(--neon); color: var(--neon);">
+                <i class="fas fa-phone-alt"></i> إتصال سريع
+            </a>
+        </div>
+    </section>
+
+    <section class="services" id="gallery">
+        <h2 class="section-title">خدمات <span>الفخامة</span></h2>
+        <div class="grid">
+            <div class="card" onclick="this.classList.toggle('active')">
+                <i class="fas fa-soap"></i>
+                <h3>غسيل VIP</h3>
+                <p>تنظيف عميق للمنسوجات الرقيقة بأفضل الخامات العالمية.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-wind"></i>
+                <h3>كوي بخار</h3>
+                <p>كوي احترافي يحافظ على شكل ملابسك وكأنها خرجت من المتجر الآن.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-magic"></i>
+                <h3>تعطير ملكي</h3>
+                <p>نستخدم زيوت عطرية تدوم طويلاً وتنعش حواسك.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 20px;">HAMAS LAUNDRY</div>
+        <p>خدمتكم شرف لنا.. تواصلوا معنا في أي وقت</p>
+        <a href="tel:05XXXXXXXX" class="phone-footer">05XXXXXXXX</a>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-snapchat"></i></a>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.4;">
+            &copy; 2026 مغسلة همس. تم التصميم بكل حب.
+        </p>
+    </footer>
+
+    <script>
+        // أنيميشن بسيط عند ظهور الكروت
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+    </script>
+</body>
+</html>
